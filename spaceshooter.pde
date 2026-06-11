@@ -3,6 +3,7 @@ Player p1;
 Enemy e1;
 Player_Missile pm;
 Enemy_Missile em;
+boolean wk,a,s,d;
 
 void setup(){
   size(600,800);
@@ -23,3 +24,31 @@ void draw(){
   pm.update();
   em.update();
 }
+void keyPressed(){
+  if(key == 'w'){
+    wk = true;
+  }
+  if(key == 'a'){
+    a = true;
+  }
+  if(key == 's'){
+    s = true;
+  }
+  if(key == 'd'){
+    d = true;
+  }
+}
+void keyReleased(){
+  if(key == 'w'){
+    wk = false;
+  }
+  if(key == 'a'){
+    a = false;
+  }
+  if(key == 's'){
+    s = false;
+  }
+  if(key == 'd'){
+    d = false;
+  }
+}  
