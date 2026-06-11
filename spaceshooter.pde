@@ -6,7 +6,7 @@ void setup(){
   playerImage = loadImage("images/ship4.png");
   enemyImage = loadImage("images/aliensh.png");
   p1 = new Player();
-  e1 = new Enemy()
+  e1 = new Enemy();
 }
 
 void draw(){
