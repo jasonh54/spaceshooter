@@ -8,8 +8,4 @@ class Game_Object{
     this.h = h;
     this.image = image;
   }
-  
-  public void show(){
-    image(image,x,y,w,h);
-  }
 }
