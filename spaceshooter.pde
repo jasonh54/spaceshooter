@@ -12,13 +12,14 @@ void setup(){
   enemyMissileImage = loadImage("images/alienMissile.png");
   p1 = new Player();
   e1 = new Enemy();
-  pm = new Player_Missile();
-  em = new Enemy_Missile();
+  pm = new Player_Missile(p1.x, p1.y);
+  em = new Enemy_Missile(e1.x, e1.y);
 }
 
 void draw(){
-  p1.show();
-  e1.show();
-  pm.show();
-  em.show();
+  background(50,50,50);
+  p1.update();
+  e1.update();
+  pm.update();
+  em.update();
 }

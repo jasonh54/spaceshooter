@@ -10,6 +10,13 @@ class Game_Object{
   }
   
   public void show(){
-    image(image,x,y,w,h);
+    image(image,x-w/2,y-h/2,w,h);
+  }
+  
+  public void move(){}
+  
+  public void update(){
+    move();
+    show();
   }
 }
