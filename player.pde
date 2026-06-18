@@ -3,6 +3,7 @@ class Player extends Game_Object{
   float vy;
   public Player(){
 
+    
     super(400,400,45,50, playerImage);
 
     vx = 10;
