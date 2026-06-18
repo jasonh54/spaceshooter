@@ -6,7 +6,7 @@ Enemy_Missile em;
 boolean wk,a,s,d,space;
 Enemy2 e2;
 ArrayList <Game_Object> objects;
-int time;
+int time, timez;
 
 
 void setup(){
@@ -30,6 +30,7 @@ void draw(){
     objects.get(i).update();
   }
   spawn();
+  cleanList();
 }
 void keyPressed(){
   if(key == 'w'){
@@ -67,8 +68,29 @@ void keyReleased(){
 }
 void spawn(){
   time += 1;
+  timez += 1;
   if(time >= 70){
     new Enemy(random(10,590),0);
     time = 0;
+  }
+  if(timez >= 140){
+    new Enemy2(random(10,590),0);
+    timez = 0;
+  }
+}
+boolean collision(Game_Object m, Game_Object e ){
+  float dx = abs(m.x-e.x);
+  float dy = abs(m.y-e.y);
+  if(dx < m.w/2+e.w/2 && dy < m.h/2+e.h/2){
+    return true;
+  }
+  return false;
+}
+void cleanList(){
+  for(int i = 0; i < objects.size();i++){
+    if(!objects.get(i).alive){
+      objects.remove(i);
+      i--;
+    }
   }
 }

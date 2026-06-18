@@ -4,6 +4,7 @@ class Player extends Game_Object{
   int timer;
   public Player(){
     super(400,400,45,50, playerImage);
+    tag = "player";
     vx = 10;
     vy = 10;
     timer = 0;
