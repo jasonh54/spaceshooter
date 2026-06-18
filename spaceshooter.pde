@@ -4,6 +4,7 @@ Enemy e1;
 Player_Missile pm;
 Enemy_Missile em;
 boolean wk,a,s,d;
+ArrayList <Game_Object> objects;
 
 void setup(){
   size(600,800);
@@ -11,6 +12,7 @@ void setup(){
   enemyImage = loadImage("images/aliensh.png");
   missileImage = loadImage("images/missileimage.png");
   enemyMissileImage = loadImage("images/alienMissile.png");
+  objects = new ArrayList<Game_Object>();
   p1 = new Player();
   e1 = new Enemy();
   pm = new Player_Missile(p1.x, p1.y);
@@ -19,10 +21,9 @@ void setup(){
 
 void draw(){
   background(50,50,50);
-  p1.update();
-  e1.update();
-  pm.update();
-  em.update();
+  for(int i = 0; i < objects.size();i++){
+    objects.get(i).update();
+  }
 }
 void keyPressed(){
   if(key == 'w'){
