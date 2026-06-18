@@ -1,6 +1,8 @@
 class Game_Object{
   float x,y,w,h;
+  String tag;
   PImage image;
+  boolean alive;
   public Game_Object( float x,float y,float w, float h,PImage image){
     objects.add(this);
     this.x = x;
@@ -8,6 +10,7 @@ class Game_Object{
     this.w = w;
     this.h = h;
     this.image = image;
+    this.alive = true;
   }
   
   public void show(){

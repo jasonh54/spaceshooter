@@ -5,6 +5,7 @@ class Enemy2 extends Game_Object{
     super(x,y,50,50, enemy2Image);
     timer = 0;
     right = ((int)random(0,2))==0;
+    tag = "enemy";
   }
   public void move(){
     if(y<200){
@@ -31,9 +32,19 @@ class Enemy2 extends Game_Object{
       timer=(int)random(-300,-100);
     }
   }
+  public void checkCollision(){
+    for(int i = 0; i < objects.size();i++){
+      if(objects.get(i).tag.equals("pmissile")){
+        if(collision(this,objects.get(i))){
+          alive = false;
+        }
+      }
+    }
+  }
   public void update(){
     move();
     show();
     shoot();
+    checkCollision();
   }
 }
