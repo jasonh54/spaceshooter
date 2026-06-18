@@ -1,13 +1,18 @@
 class Player extends Game_Object{
   float vx; 
   float vy;
+  int timer;
   public Player(){
-
     super(400,400,45,50, playerImage);
-
     vx = 10;
     vy = 10;
+    timer = 0;
 
+  }
+  public void update(){
+    move();
+    show();
+    shoot();
   }
   public void move(){
     if(wk){
@@ -21,6 +26,13 @@ class Player extends Game_Object{
     }
     if(d){
       this.x += vx;
+    }
+  }
+  public void shoot(){
+    timer += 1;
+    if(space && timer >= 60){
+      new Player_Missile(this.x,this.y);
+      timer = 0;
     }
   }
 
